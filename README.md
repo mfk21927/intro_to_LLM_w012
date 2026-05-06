@@ -1,3 +1,6 @@
+To include the specific images from your `images` folder in your `README.md`, you should use the standard Markdown image syntax. Since you want to match the structure of your previous template, I have placed each image under its corresponding task description.
+
+```markdown
 # ML_WEEK12_B01
 # 🚀 intro_to_LLM
 
@@ -39,7 +42,7 @@ It covers the entire pipeline from **vector database initialization and document
 ### **Task 12.1: RAG Models & Vector DB Setup**
 *Initialized the foundational models and the vector database for efficient retrieval.*
 
-![LLM Setup](images/llm_pic.png)
+![LLM Setup](images/llm_pic.PNG)
 
 *   Initialized a `SentenceTransformer` (`all-MiniLM-L6-v2`) for generating semantic text embeddings.
 *   Loaded a local LLM pipeline using HuggingFace's `AutoModelForCausalLM` and `AutoTokenizer` (`GPT-2`).
@@ -48,7 +51,7 @@ It covers the entire pipeline from **vector database initialization and document
 ### **Task 12.2: Document Processing Pipeline**
 *Handling semantic search capabilities and document ingestion.*
 
-![Semantic Processing](images/sementic_pic.png)
+![Semantic Processing](images/sementic_pic.PNG)
 
 *   Built an `/upload` endpoint to ingest raw `.txt` knowledge files.
 *   Implemented a robust text-splitting algorithm using regex to handle variable line breaks and isolate coherent facts.
@@ -57,7 +60,7 @@ It covers the entire pipeline from **vector database initialization and document
 ### **Task 12.3: Context-Aware Flask API & UI**
 *Connecting the RAG components through a user-friendly interface.*
 
-![RAG System](images/rag_pic.png)
+![RAG System](images/rag_pic.PNG)
 
 *   Implemented the RAG retrieval logic: vectorized the user query, performed a similarity search in FAISS, and extracted the top matching chunks.
 *   Augmented the LLM prompt with the retrieved background information to generate factual, context-grounded answers.
@@ -66,7 +69,7 @@ It covers the entire pipeline from **vector database initialization and document
 ### **Task 12.4: Remote Deployment & Tunneling**
 *Deploying the application via API endpoints and secure tunnels.*
 
-![RAG API](images/rag_api_pic.png)
+![RAG API](images/rag_api_pic.PNG)
 
 *   Configured the Flask application to run safely in a background daemon thread (`0.0.0.0:5000`).
 *   Wrote automation to hunt down and kill ghost servers (`fuser -k 5000/tcp`) preventing port collisions.
@@ -75,3 +78,21 @@ It covers the entire pipeline from **vector database initialization and document
 -----
 
 ## 📁 Project Structure
+```
+intro_to_LLM_w012/
+├── images/                  # Task screenshots and diagrams
+├── app.py                   # Main RAG pipeline, Flask server, and API logic
+├── test_data.txt            # Sample knowledge base for context retrieval
+├── requirements.txt         # Project dependencies
+└── README.md                # Documentation
+```
+
+-----
+
+## 💻 Tech Stack
+
+*   **Machine Learning:** HuggingFace Transformers, SentenceTransformers, FAISS
+*   **Frameworks:** Flask
+*   **Languages:** Python, JavaScript, HTML/CSS
+*   **Networking & Deployment:** Cloudflare Tunnels, Localtunnel, Linux Port Management
+```

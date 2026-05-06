@@ -1,30 +1,38 @@
-To include the specific images from your `images` folder in your `README.md`, you should use the standard Markdown image syntax. Since you want to match the structure of your previous template, I have placed each image under its corresponding task description.
+# ML_WEEK12_B01 — intro_to_LLM_w012
 
-```markdown
-# ML_WEEK12_B01
-# 🚀 intro_to_LLM
+<p align="center">
+	<a href="https://huggingface.co/">
+		<img alt="HuggingFace" src="https://img.shields.io/badge/HuggingFace-Transformers-yellow?logo=huggingface&logoColor=white" />
+	</a>
+	<a href="https://flask.palletsprojects.com/">
+		<img alt="Flask" src="https://img.shields.io/badge/Flask-3.x-black?logo=flask&logoColor=white" />
+	</a>
+	<a href="https://github.com/facebookresearch/faiss">
+		<img alt="FAISS" src="https://img.shields.io/badge/FAISS-Vector%20DB-blue?logo=meta&logoColor=white" />
+	</a>
+</p>
+
+<p align="center">
+	<img alt="Status" src="https://img.shields.io/badge/Status-Active-blue?style=for-the-badge" />
+	<img alt="Batch" src="https://img.shields.io/badge/Batch-B01-orange?style=for-the-badge" />
+</p>
 
 > **Name:** Muhammad Fahad
+>
 > **Email:** [![Email](https://img.shields.io/badge/Email-mfk21927@gmail.com-red?style=flat-square&logo=gmail&logoColor=white)](mailto:mfk21927@gmail.com)
+>
 > **LinkedIn:** [![LinkedIn](https://img.shields.io/badge/LinkedIn-Muhammad%20Fahad-blue?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/muhammad-fahad-087057293)
+>
 > **Start Date:** 20-12-2025
-
----
-
-![Internship](https://img.shields.io/badge/Status-Active-blue?style=for-the-badge)
-![Batch](https://img.shields.io/badge/Batch-B01-orange?style=for-the-badge)
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/)
-[![Flask](https://img.shields.io/badge/Flask-3.x-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![FAISS](https://img.shields.io/badge/FAISS-Vector%20DB-blue?logo=meta&logoColor=white)](https://github.com/facebookresearch/faiss)
 
 ---
 
 ## 📌 Project Overview
 
-This repository documents my **Week 12 Machine Learning Internship tasks**, focused on building a local **Retrieval-Augmented Generation (RAG) System**. 
-It covers the entire pipeline from **vector database initialization and document embedding** to **LLM prompt augmentation and remote Flask deployment** using cloud tunnels.
+This repository documents my **Week 12 Machine Learning Internship tasks**, focused on building a local **Retrieval-Augmented Generation (RAG) System**.
+It covers the pipeline from **document ingestion + embeddings** to **FAISS retrieval** and **Flask-based API/UI**, plus **tunneling** for remote access.
 
------
+---
 
 ## 📈 Week 12 Tasks Overview
 
@@ -35,64 +43,83 @@ It covers the entire pipeline from **vector database initialization and document
 | 12.3 | Context-Aware Flask API & UI | Flask, REST APIs, HTML/JS | ✅ Completed |
 | 12.4 | Remote Deployment & Tunneling | Cloudflared, Localtunnel, Threading | ✅ Completed |
 
------
+---
 
 ## ✅ Task Details
 
-### **Task 12.1: RAG Models & Vector DB Setup**
+### Task 12.1: RAG Models & Vector DB Setup
 *Initialized the foundational models and the vector database for efficient retrieval.*
 
-![LLM Setup](images/llm_pic.PNG)
+<p align="center">
+	<img src="images/llm_pic.PNG" alt="LLM Setup" />
+</p>
 
-*   Initialized a `SentenceTransformer` (`all-MiniLM-L6-v2`) for generating semantic text embeddings.
-*   Loaded a local LLM pipeline using HuggingFace's `AutoModelForCausalLM` and `AutoTokenizer` (`GPT-2`).
-*   Configured a local **FAISS IndexFlatL2** vector database to store and search 384-dimensional text embeddings in memory.
+- Initialized a `SentenceTransformer` (`all-MiniLM-L6-v2`) to generate semantic embeddings.
+- Loaded a local LLM pipeline using HuggingFace `AutoModelForCausalLM` and `AutoTokenizer` (GPT-2).
+- Configured a local **FAISS IndexFlatL2** vector database to store and search 384-dimensional embeddings.
 
-### **Task 12.2: Document Processing Pipeline**
-*Handling semantic search capabilities and document ingestion.*
+### Task 12.2: Document Processing Pipeline
+*Handled semantic search capabilities and document ingestion.*
 
-![Semantic Processing](images/sementic_pic.PNG)
+<p align="center">
+	<img src="images/sementic_pic.PNG" alt="Semantic Processing" />
+</p>
 
-*   Built an `/upload` endpoint to ingest raw `.txt` knowledge files.
-*   Implemented a robust text-splitting algorithm using regex to handle variable line breaks and isolate coherent facts.
-*   Engineered a hard-reset mechanism (`index.reset()`) to clear the vector DB and corpus on new uploads, preventing data contamination.
+- Built an `/upload` endpoint to ingest `.txt` knowledge files.
+- Implemented text splitting (regex-based) to handle variable line breaks and keep coherent chunks.
+- Added a reset mechanism (`index.reset()`) to clear the vector DB/corpus on new uploads.
 
-### **Task 12.3: Context-Aware Flask API & UI**
-*Connecting the RAG components through a user-friendly interface.*
+### Task 12.3: Context-Aware Flask API & UI
+*Connected the RAG components through a user-friendly interface.*
 
-![RAG System](images/rag_pic.PNG)
+<p align="center">
+	<img src="images/rag_pic.PNG" alt="RAG System" />
+</p>
 
-*   Implemented the RAG retrieval logic: vectorized the user query, performed a similarity search in FAISS, and extracted the top matching chunks.
-*   Augmented the LLM prompt with the retrieved background information to generate factual, context-grounded answers.
-*   Built an integrated HTML/CSS/JS frontend served directly via Flask to provide a seamless chat interface.
+- Implemented retrieval: embed query → FAISS similarity search → select top matching chunks.
+- Augmented the LLM prompt with retrieved context for more grounded answers.
+- Built a simple HTML/CSS/JS frontend served via Flask.
 
-### **Task 12.4: Remote Deployment & Tunneling**
-*Deploying the application via API endpoints and secure tunnels.*
+### Task 12.4: Remote Deployment & Tunneling
+*Deployed the application via API endpoints and secure tunnels.*
 
-![RAG API](images/rag_api_pic.PNG)
+<p align="center">
+	<img src="images/rag_api_pic.PNG" alt="RAG API" />
+</p>
 
-*   Configured the Flask application to run safely in a background daemon thread (`0.0.0.0:5000`).
-*   Wrote automation to hunt down and kill ghost servers (`fuser -k 5000/tcp`) preventing port collisions.
-*   Bypassed VS Code dev tunnel limitations by deploying the local server to the public internet using **Cloudflare Tunnels**.
+- Exposed the local server publicly using tunneling (Cloudflare Tunnel / localtunnel).
+- Automated tunnel startup via `server.py` (note: it downloads the Linux `cloudflared` binary).
 
------
+---
 
 ## 📁 Project Structure
-```
+
+```text
 intro_to_LLM_w012/
-├── images/                  # Task screenshots and diagrams
-├── app.py                   # Main RAG pipeline, Flask server, and API logic
-├── test_data.txt            # Sample knowledge base for context retrieval
-├── requirements.txt         # Project dependencies
-└── README.md                # Documentation
+├── images/                         # Task screenshots and diagrams
+│   ├── llm_pic.PNG
+│   ├── rag_api_pic.PNG
+│   ├── rag_pic.PNG
+│   └── sementic_pic.PNG
+├── output files/                   # Vector store artifacts + results
+│   ├── rag_index.faiss
+│   ├── rag_store.json
+│   ├── results_generation.txt
+│   ├── results_mask_qa.txt
+│   ├── semantic_search.index
+│   └── uploads/
+├── flask_rag_api.ipynb
+├── llm_basics.ipynb
+├── rag_system.ipynb
+├── sementic_search.ipynb
+└── README.md
 ```
 
------
+---
 
 ## 💻 Tech Stack
 
-*   **Machine Learning:** HuggingFace Transformers, SentenceTransformers, FAISS
-*   **Frameworks:** Flask
-*   **Languages:** Python, JavaScript, HTML/CSS
-*   **Networking & Deployment:** Cloudflare Tunnels, Localtunnel, Linux Port Management
-```
+- **Machine Learning:** HuggingFace Transformers, SentenceTransformers, FAISS
+- **Framework:** Flask
+- **Languages:** Python, JavaScript, HTML/CSS
+- **Deployment/Tunneling:** Cloudflare Tunnel, localtunnel

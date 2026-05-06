@@ -1,0 +1,18 @@
+--- MASK TASK ---
+Prompt: The programmer decided to [MASK] the code to fix the bug.
+Score: 0.2547 | Prediction: use
+Score: 0.1361 | Prediction: write
+Score: 0.1213 | Prediction: change
+Score: 0.1188 | Prediction: modify
+Score: 0.0214 | Prediction: update
+
+
+--- QA TASK ---
+Context: 
+Hugging Face is a technology company based in New York and Paris. 
+They are best known for the Transformers library, which allows developers 
+to easily download and train state-of-the-art machine learning models.
+
+Question: Where is Hugging Face based?
+Answer: New York and Paris
+Score: 0.9650

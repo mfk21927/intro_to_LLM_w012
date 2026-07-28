@@ -1,4 +1,4 @@
-# ML_WEEK12_B01 — intro_to_LLM_w012
+# Retrieval Augmented Generation System
 
 <p align="center">
 	<a href="https://huggingface.co/">
